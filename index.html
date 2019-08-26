@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic tac toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <table>
+                <tr>
+                    <td id="td0"></td>
+                    <td id="td1"></td>
+                    <td id="td2"></td>
+                </tr>
+                <tr>
+                    <td id="td3"></td>
+                    <td id="td4"></td>
+                    <td id="td5"></td>
+                </tr>
+                <tr>
+                    <td id="td6"></td>
+                    <td id="td7"></td>
+                    <td id="td8"></td>
+                </tr>
+            </table>
+            <p class="message">Ходит<span id="step">X</span></p>
+        </div>
+        <div class="right">
+            <p>Выиграл Х: <span id="winX">0</span></p>
+            <p>Выиграл 0: <span id="win0">0</span></p>
+            <p>Ничья: <span id="noWin">0</span></p>
+        </div>
+    </div>
+    <script>
+        $('document').ready(()=>{
+            let count = 0;
+            let count_x = 0;
+            let count_0 = 0;
+            let count_nowin = 0;
+            $('td').on("click", ()=>{
+                if(count % 2 == 0) {
+                    $(event.currentTarget).text('X');
+                    $('#step').text('0');
+                    count ++;
+                }
+                else {
+                    $(event.currentTarget).text('0');
+                    $('#step').text('X');
+                    count ++;
+                }
+                checkWin();
+            });
+            function checkWin() {
+                let flag = false;
+                if($('#td0').text() == 'X' && $('#td1').text() == 'X' && $('#td2').text() == 'X') {
+                    $('#td0').css("backgroundColor", "red");
+                    $('#td1').css("backgroundColor", "red");
+                    $('#td2').css("backgroundColor", "red");
+                    count_x ++;
+                    $('#winX').text(count_x);
+                    flag = clearCells();
+                };
+                if($('#td3').text() == 'X' && $('#td4').text() == 'X' && $('#td5').text() == 'X') {
+                    $('#td3').css("backgroundColor", "red");
+                    $('#td4').css("backgroundColor", "red");
+                    $('#td5').css("backgroundColor", "red");
+                    count_x ++;
+                    $('#winX').text(count_x);
+                    flag = clearCells();
+                };
+                if($('#td6').text() == 'X' && $('#td7').text() == 'X' && $('#td8').text() == 'X') {
+                    $('#td6').css("backgroundColor", "red");
+                    $('#td7').css("backgroundColor", "red");
+                    $('#td8').css("backgroundColor", "red");
+                    count_x ++;
+                    $('#winX').text(count_x);
+                    flag = clearCells();
+                };
+                if($('#td0').text() == 'X' && $('#td3').text() == 'X' && $('#td6').text() == 'X') {
+                    $('#td0').css("backgroundColor", "red");
+                    $('#td3').css("backgroundColor", "red");
+                    $('#td6').css("backgroundColor", "red");
+                    count_x ++;
+                    $('#winX').text(count_x);
+                    flag = clearCells();
+                };
+                if($('#td1').text() == 'X' && $('#td4').text() == 'X' && $('#td7').text() == 'X') {
+                    $('#td1').css("backgroundColor", "red");
+                    $('#td4').css("backgroundColor", "red");
+                    $('#td7').css("backgroundColor", "red");
+                    count_x ++;
+                    $('#winX').text(count_x);
+                    flag = clearCells();
+                };
+                if($('#td2').text() == 'X' && $('#td5').text() == 'X' && $('#td8').text() == 'X') {
+                    $('#td2').css("backgroundColor", "red");
+                    $('#td5').css("backgroundColor", "red");
+                    $('#td8').css("backgroundColor", "red");
+                    count_x ++;
+                    $('#winX').text(count_x);
+                    flag = clearCells();
+                };
+                if($('#td0').text() == 'X' && $('#td4').text() == 'X' && $('#td8').text() == 'X') {
+                    $('#td0').css("backgroundColor", "red");
+                    $('#td4').css("backgroundColor", "red");
+                    $('#td8').css("backgroundColor", "red");
+                    count_x ++;
+                    $('#winX').text(count_x);
+                    flag = clearCells();
+                };
+                if($('#td2').text() == 'X' && $('#td4').text() == 'X' && $('#td6').text() == 'X') {
+                    $('#td2').css("backgroundColor", "red");
+                    $('#td4').css("backgroundColor", "red");
+                    $('#td6').css("backgroundColor", "red");
+                    count_x ++;
+                    $('#winX').text(count_x);
+                    flag = clearCells();
+                };
+                if($('#td0').text() == '0' && $('#td1').text() == '0' && $('#td2').text() == '0') {
+                    $('#td0').css("backgroundColor", "red");
+                    $('#td1').css("backgroundColor", "red");
+                    $('#td2').css("backgroundColor", "red");
+                    count_0 ++;
+                    $('#win0').text(count_0);
+                    flag = clearCells();
+                };
+                if($('#td3').text() == '0' && $('#td4').text() == '0' && $('#td5').text() == '0') {
+                    $('#td3').css("backgroundColor", "red");
+                    $('#td4').css("backgroundColor", "red");
+                    $('#td5').css("backgroundColor", "red");
+                    count_0 ++;
+                    $('#win0').text(count_0);
+                    flag = clearCells();
+                };
+                if($('#td6').text() == '0' && $('#td7').text() == '0' && $('#td8').text() == '0') {
+                    $('#td6').css("backgroundColor", "red");
+                    $('#td7').css("backgroundColor", "red");
+                    $('#td8').css("backgroundColor", "red");
+                    count_0 ++;
+                    $('#win0').text(count_0);
+                    flag = clearCells();
+                };
+                if($('#td0').text() == '0' && $('#td3').text() == '0' && $('#td6').text() == '0') {
+                    $('#td0').css("backgroundColor", "red");
+                    $('#td3').css("backgroundColor", "red");
+                    $('#td6').css("backgroundColor", "red");
+                    count_0 ++;
+                    $('#win0').text(count_0);
+                    flag = clearCells();
+                };
+                if($('#td1').text() == '0' && $('#td4').text() == '0' && $('#td7').text() == '0') {
+                    $('#td1').css("backgroundColor", "red");
+                    $('#td4').css("backgroundColor", "red");
+                    $('#td7').css("backgroundColor", "red");
+                    count_0 ++;
+                    $('#win0').text(count_0);
+                    flag = clearCells();
+                };
+                if($('#td2').text() == '0' && $('#td5').text() == '0' && $('#td8').text() == '0') {
+                    $('#td2').css("backgroundColor", "red");
+                    $('#td5').css("backgroundColor", "red");
+                    $('#td8').css("backgroundColor", "red");
+                    count_0 ++;
+                    $('#win0').text(count_0);
+                    flag = clearCells();
+                };
+                if($('#td0').text() == '0' && $('#td4').text() == '0' && $('#td8').text() == '0') {
+                    $('#td0').css("backgroundColor", "red");
+                    $('#td4').css("backgroundColor", "red");
+                    $('#td8').css("backgroundColor", "red");
+                    count_0 ++;
+                    $('#win0').text(count_0);
+                    flag = clearCells();
+                };
+                if($('#td2').text() == '0' && $('#td4').text() == '0' && $('#td6').text() == '0') {
+                    $('#td2').css("backgroundColor", "red");
+                    $('#td4').css("backgroundColor", "red");
+                    $('#td6').css("backgroundColor", "red");
+                    count_0 ++;
+                    $('#win0').text(count_0);
+                    flag = clearCells();
+                };
+                if(count == 9 && flag == false) {
+                    count_nowin ++;
+                    console.log('count_nowin' + count_nowin);
+                    $('#noWin').text(count_nowin);
+                    clearCells();
+                }
+            };
+            function clearCells() {
+                let timer = setTimeout(()=>{
+                    $('td').text('').css("backgroundColor", "white");
+                    count = 0;
+                    $('#step').text('X');
+                    console.log('clearCells count:' + count);
+                }, 6000);
+                return true;
+            }
+        });
+    </script>
+</body>
+</html>
